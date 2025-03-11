@@ -6,21 +6,22 @@
 
 FaceRecognizer::FaceRecognizer(const std::string& modelPath)
 {
-    // For now, just prints the model path.
-   
-    std::cout << "Loading dlib model from: " << modelPath << std::endl;
+    try {
+
+        dlib::deserialize(modelPath) >> net;
+        std::cout << "Loaded dlib model from: " << modelPath << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Error loading dlib model: " << e.what() << std::endl;
+    }
 }
 
-void FaceRecognizer::predictFace(const cv::Mat& faceROI, int& predictedLabel, double& confidence)
+dlib::matrix <float, 0, 1> FaceRecognizer::computeFaceDescriptor(const cv::Mat& faceROI)
 {
-    // Converts opencv image to dlib image
+    // convert opencv image to dlib image
     dlib::cv_image<dlib::bgr_pixel> dlibImg(faceROI);
     dlib::matrix<dlib::rgb_pixel> dlibMatrix;
     dlib::assign_image(dlibMatrix, dlibImg);
 
-    // Dummy recognition: Always returns label 1 with 0.90 confidence.
-    predictedLabel = 1;
-    confidence = 0.90;
-    std::cout << "Predicted label: " << predictedLabel
-        << " with confidence: " << confidence << std::endl;
+    return net(dlibMatrix);
 }

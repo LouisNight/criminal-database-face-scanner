@@ -3,17 +3,26 @@
 
 #include <opencv2/opencv.hpp>
 #include <string>
+#include <dlib/dnn.h>
+#include <dlib/opencv.h>
 
-// FaceRecognizer uses dlib (DUMMY IMPLEMENTATION)
+
+using anet_type = dlib::loss_metric<dlib::fc_no_bias<128,
+    dlib::avg_pool_everything<
+    dlib::con<64, 7, 7, 2, 2,
+    dlib::input_rgb_image_sized<150>
+    >>>>;
+
+
 class FaceRecognizer {
 public:
     
     FaceRecognizer(const std::string& modelPath);
     
-    void predictFace(const cv::Mat& faceROI, int& predictedLabel, double& confidence);
+    dlib::matrix<float, 0, 1> computeFaceDescriptor(const cv::Mat& faceROI);
 
 private:
-    // Add dlib network/model members
+    anet_type net;
 };
 
 #endif

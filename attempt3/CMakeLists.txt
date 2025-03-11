@@ -25,7 +25,7 @@ add_executable(attempt3
     "include/FaceRecognizer.h" 
     "src/FaceRecognizer.cpp"
     "C:/dlib-19.24/dlib/all/source.cpp"
-)
+ "include/FaceDatabase.h" "src/FaceDatabase.cpp")
 
 target_compile_options(attempt3 PRIVATE "/bigobj")
 
