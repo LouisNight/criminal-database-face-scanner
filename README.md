@@ -1,6 +1,6 @@
 # Real-Time Face Recognition with OpenCV and Dlib
 
-This project is a real-time face recognition system using OpenCV and Dlib. It captures video from the webcam, detects faces in real-time, and compares them to a pre-existing database of known faces using a deep learning model. The system also allows for enrolling new faces and saving the updated face database.
+This project is a real-time face recognition system using OpenCV and Dlib. It captures video from the webcam, detects faces in real-time, and compares them to a pre-existing database of known faces using a deep learning model. The system also allows for enrolling new faces and saving the updated face database. The idea was to create a system that can be used with security cameras to detect wanted criminals or missing persons.
 
     Key Features:
 
