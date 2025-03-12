@@ -22,8 +22,8 @@ Install Dependencies:
 
 To get started, you will need to install OpenCV and Dlib on your system. You can follow the official installation guides for each:
 
-    OpenCV: [OpenCV Installation Guide](https://docs.opencv.org/4.x/d3/d52/tutorial_windows_install.html)
-    Dlib: [Dlib Installation Guide](https://dlib.net/)
+OpenCV: [OpenCV Installation Guide](https://docs.opencv.org/4.x/d3/d52/tutorial_windows_install.html)
+Dlib: [Dlib Installation Guide](https://dlib.net/)
 
 Pre-trained Models:
 
@@ -44,7 +44,7 @@ In the code, static paths are used for both the Haar Cascade and ResNet model fi
 
     Haar Cascade file: Change the path in the main.cpp file to point to the location of the haarcascade_frontalface_default.xml file.
 
-    Example:
+Example:
 
 FaceDetector detector("path/to/your/haarcascade_frontalface_default.xml");
 
